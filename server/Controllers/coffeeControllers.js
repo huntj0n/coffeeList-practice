@@ -39,8 +39,7 @@ module.exports = {
     deleteCoffee: (req, res) => {
         const db = req.app.get('db');
         const {id} = req.params;
-        db.coffee
-            .delete_coffee(id)
+        db.coffee.delete_coffee(id)
             .then((coffees) => res.status(200).send(coffees))
             .catch((err) => {
                 console.log(err)

@@ -12,10 +12,10 @@ module.exports = {
     },
     addReview: (req, res) => {
         const db = req.app.get('db');
-        const{coffee, rating, title, description} = req.body;
-
+        const {coffee_coffeeid, rating, title, description} = req.body;
+        
         db.reviews
-            .add_reviews(coffee, rating, title, description)
+            .add_review( coffee_coffeeid, rating, title, description )
             .then((reviews) => res.status(200).send(reviews))
             .catch((err) => {
                 console.log(err)
@@ -25,10 +25,10 @@ module.exports = {
     editReview: (req, res) => {
         const db = req.app.get('db');
         const {id} = req.params;
-        const{coffee, rating, title, description} = req.body;
+        const{coffee_coffeeid, rating, title, description} = req.body;
 
         db.reviews
-            .edit_reviews(id, coffee, rating, title, description)
+            .edit_review(id, coffee_coffeeid, rating, title, description)
             .then((reviews) => res.status(200).send(reviews))
             .catch((err) => {
                 console.log(err)
@@ -38,9 +38,8 @@ module.exports = {
     deleteReview: (req, res) => {
         const db = req.app.get('db');
         const {id} = req.params;
-
         db.reviews
-            .get_reviews(id)
+            .delete_review(id)
             .then((reviews) => res.status(200).send(reviews))
             .catch((err) => {
                 onsole.log(err)
