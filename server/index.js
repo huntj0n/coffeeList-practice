@@ -4,6 +4,7 @@ const massive = require('massive');
 
 //CONTROLLERS
 const coffeeCtrl = require('./Controllers/coffeeControllers.js');
+const reviewCtrl = require('./Controllers/reviewControllers.js');
 
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 
@@ -13,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 massive({
-    connectionString = CONNECTION_STRING,
+    connectionString: CONNECTION_STRING,
     ssl: {
         rejectUnauthorized: false
     }
@@ -27,7 +28,12 @@ massive({
 });
 
 //ENDPOINTS
-app.get('/api/coffee', coffeeCtrl.getCoffee)
+app.get('/api/coffee', coffeeCtrl.getCoffees)
 app.post('/api/coffee', coffeeCtrl.addCoffee)
-app.put('/api/coffee', coffeeCtrl.editCoffee)
-app.delete('/api/coffee', coffeeCtrl.deleteCoffee)
+app.put('/api/coffee/:id', coffeeCtrl.editCoffee)
+app.delete('/api/coffee/:id', coffeeCtrl.deleteCoffee)
+
+app.get('/api/reviews', reviewCtrl.getReviews)
+app.post('/api/reviews', reviewCtrl.addReview)
+app.put('/api/reviews/:id', reviewCtrl.editReview)
+app.delete('/api/reviews/:id', reviewCtrl.deleteReview)
