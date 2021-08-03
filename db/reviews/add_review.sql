@@ -1,5 +1,5 @@
 INSERT INTO coffee_reviews
-(coffee_coffeeId, rating, title, description)
+(coffee_coffeeid, rating, title, description)
 VALUES
 ($1, $2, $3, $4);
 
