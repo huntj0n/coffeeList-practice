@@ -47,10 +47,21 @@ header {
 }
 .coffee__left {
   height: 100%;
-  width: 50%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .coffee__left img {
-  width: 20px;
+  width: 150px;
+}
+.coffee__right {
+  height: 100%;
+  width: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .reviews {
