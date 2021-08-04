@@ -1,16 +1,18 @@
 .app {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 header {
   height: 100px;
   width: 100vw;
   background-color: #898F4B;
   color: white;
+  z-index: 1;
 }
 .header__h1 {
   font-size: 5rem;
@@ -25,16 +27,26 @@ header {
   flex: 1;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  padding: 15px;
+  /* overflow: hidden; */
 }
 
 .coffeeList {
-  height: 100%;
+  height: calc(100vh - 100px);
+  /* height: 100%; */
   width: 35%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  border: 1px solid black;
+  justify-content: space-between;
+  padding: 10px;
+  overflow: scroll;
+  z-index: 10;
+
+  background-color: white;
+  border-radius: 15px;
+  /* border: 1px solid black; */
 }
 
 .coffee {
@@ -44,6 +56,7 @@ header {
   background: #938066;
   margin-bottom: 16px;
   display: flex;
+  border-radius: 15px;
 }
 .coffee__left {
   height: 100%;
@@ -64,10 +77,30 @@ header {
   justify-content: space-around;
 }
 
-.reviews {
+.reviewList {
   height: 100%;
   width: 65%;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+}
+
+.review__add {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+}
+.review__addTop{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
