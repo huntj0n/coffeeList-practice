@@ -48,7 +48,6 @@ export default function Reviews() {
                             coffee={r.coffee_coffeeid}
                             rating={r.rating}
                             title={r.title}
-                            desc={r.description}
 
                             deleteReviewFn={deleteReview}
                             editReviewFn={editReview}
