@@ -18,7 +18,21 @@ export default function Reviews() {
             .catch(err => console.log(err))
     }, [])
 
-    console.log(reviews)
+    let deleteReview = (id) => {
+        axios.delete(`/api/reviews/${id}`)
+            .then((res) => {
+                setReviews(res.data)
+            })
+            .catch((err) => console.log(err))
+    }
+
+    let editReview = (id, coffee, rating, title, description) => {
+        axios.put(`/api/reviews/${id}`, {coffee, rating, title, description})
+            .then((res) => [
+                setReviews(res.data)
+            ])
+            .catch((err) => console.log(err))
+    }
 
     return (
         <div className='reviewList'>
@@ -30,10 +44,14 @@ export default function Reviews() {
                     return (
                         <Review 
                             key={r.review_id}
+                            review = {r}
                             coffee={r.coffee_coffeeid}
                             rating={r.rating}
                             title={r.title}
                             desc={r.description}
+
+                            deleteReviewFn={deleteReview}
+                            editReviewFn={editReview}
                         />
                     )
                 })

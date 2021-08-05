@@ -42,7 +42,7 @@ module.exports = {
             .delete_review(id)
             .then((reviews) => res.status(200).send(reviews))
             .catch((err) => {
-                onsole.log(err)
+                console.log(err)
                 res.status(500).send(err)
             })
     }

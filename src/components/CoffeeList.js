@@ -14,7 +14,6 @@ function CoffeeList() {
             .then((response) => {
                 setLoading(false)
                 setCoffeeList(response.data)
-                console.log(coffeeList)
             })
             .catch(err => console.log(err))
     }, [])
