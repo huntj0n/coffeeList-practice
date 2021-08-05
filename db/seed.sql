@@ -28,7 +28,7 @@ CREATE TABLE coffee_ratings (
 
 CREATE TABLE coffee_reviews (
     review_id SERIAL PRIMARY KEY,
-    coffee INTEGER REFERENCES coffee_coffees(coffee_coffeeId)
+    coffee INTEGER REFERENCES coffee_coffees(coffee_coffeeId),
     rating INTEGER,
     title TEXT,
     description TEXT

@@ -22,7 +22,9 @@ export default function Reviews() {
 
     return (
         <div className='reviewList'>
-            <AddReview/>
+            <AddReview 
+                resetReviews={setReviews}
+            />
             {loading ? 'Reviews Loading...' : (
                 reviews.map((r) => {
                     return (
